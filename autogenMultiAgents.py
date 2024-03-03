@@ -85,12 +85,15 @@ coder = autogen.AssistantAgent(
 )
 pm = autogen.AssistantAgent(
     name="Product_manager",
-    system_message="Creative in compare and summarize.",
+    system_message="Creative in planning and summarize.",
     llm_config=llm_config,
 )
-groupchat = autogen.GroupChat(agents=[user_proxy, coder, pm], messages=[], max_round=22)
+groupchat = autogen.GroupChat(agents=[user_proxy, coder, pm], messages=[], max_round=52)
 manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)
 
 user_proxy.initiate_chat(
-    manager, message="上海明天"
+    #token可以从https://developer.microsoft.com/en-us/graph/graph-explorer获取
+    manager, message="""请大概总结网页上的内容， 将总结结果发送给kylino@hotmail.com. 请使用graph api来发送，所需token请查询变量{GRAPH_TOKEN}""", 
+    # manager, message="""请查看今天上海天气情况， 将总结结果发送给kylino@hotmail.com. 请使用graph api来发送，所需token请查询变量{GRAPH_TOKEN}""", 
+    #manager, message="上海明天"
 )

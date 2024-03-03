@@ -103,8 +103,7 @@ user_proxy = autogen.UserProxyAgent(
 # the assistant receives a message from the user, which contains the task description
 user_proxy.initiate_chat(
     assistant,
-    #token可以从https://developer.microsoft.com/en-us/graph/graph-explorer获取
-    # message="""请总结网页https://goodworkaround.com/2020/09/14/easiest-ways-to-get-an-access-token-to-the-microsoft-graph/上的内容， 将总结结果发送给kylino@hotmail.com. 请使用graph api来发送，所需token请查询变量{GRAPH_TOKEN}""", 
+    
     message="""上海现在几点？""",
 )
 
